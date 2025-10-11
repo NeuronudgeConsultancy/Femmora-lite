@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEMMORA Lite - Doctor Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="font-sans antialiased bg-gray-50">
+    <!-- Doctor Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center text-white font-bold">FL</div>
+                <span class="text-xl font-bold text-purple-800">FEMMORA Doctor Portal</span>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#dashboard" class="text-purple-600 font-medium">Dashboard</a>
+                <a href="#patients" class="hover:text-purple-600 transition">Patients</a>
+                <a href="#reports" class="hover:text-purple-600 transition">Reports</a>
+                <a href="#messaging" class="hover:text-purple-600 transition">Messaging</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center cursor-pointer">
+                        <i class="fas fa-bell text-gray-600"></i>
+                        <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">3</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Doctor" class="w-8 h-8 rounded-full">
+                    <span class="hidden md:inline">Dr. Smith</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="mb-12">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">Dashboard Overview</h2>
+                <div class="flex space-x-2">
+                    <button class="px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        Last 30 Days
+                    </button>
+                    <button class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
+                        <i class="fas fa-plus mr-2"></i>
+                        New Patient
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="text-gray-500 mb-1">Active Patients</div>
+                            <div class="text-3xl font-bold text-gray-800">142</div>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-100 flex items-center">
+                        <span class="text-green-500 text-sm font-medium flex items-center">
+                            <i class="fas fa-arrow-up mr-1"></i> 12% 
+                        </span>
+                        <span class="text-gray-500 text-sm ml-2">vs last month</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="text-gray-500 mb-1">New Messages</div>
+                            <div class="text-3xl font-bold text-gray-800">23</div>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-100 flex items-center">
+                        <span class="text-green-500 text-sm font-medium flex items-center">
+                            <i class="fas fa-arrow-up mr-1"></i> 8% 
+                        </span>
+                        <span class="text-gray-500 text-sm ml-2">vs last month</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="text-gray-500 mb-1">Upcoming Appointments</div>
+                            <div class="text-3xl font-bold text-gray-800">15</div>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-100 flex items-center">
+                        <span class="text-yellow-500 text-sm font-medium flex items-center">
+                            <i class="fas fa-minus mr-1"></i> 2% 
+                        </span>
+                        <span class="text-gray-500 text-sm ml-2">vs last month</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="text-gray-500 mb-1">Pending Reports</div>
+                            <div class="text-3xl font-bold text-gray-800">7</div>
+                        </div>
+                        <div class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600">
+                            <i class="fas fa-file-medical"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-100 flex items-center">
+                        <span class="text-red-500 text-sm font-medium flex items-center">
+                            <i class="fas fa-arrow-down mr-1"></i> 5% 
+                        </span>
+                        <span class="text-gray-500 text-sm ml-2">vs last month</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4">Patient Activity</h3>
+                    <canvas id="activityChart" height="250"></canvas>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4">Condition Distribution</h3>
+                    <canvas id="conditionChart" height="250"></canvas>
+                </div>
+            </div>
+
+            <!-- Recent Patients -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                <div class="p-6 border-b border-gray-100">
+                    <h3 class="text-lg font-bold text-gray-800">Recent Patients</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Patient</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Condition</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Visit</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 h-10 w-10">
+                                            <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/women/32.jpg" alt="">
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-gray-900">Sarah Johnson</div>
+                                            <div class="text-sm text-gray-500">Age 34</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">PCOS</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-500">2 days ago</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                        Stable
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    <a href="#" class="text-purple-600 hover:text-purple-900">View Profile</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 h-10 w-10">
+                                            <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/women/45.jpg" alt="">
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-gray-900">Maria Chen</div>
+                                            <div class="text-sm text-gray-500">Age 41</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">Perimenopause</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-500">1 week ago</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                        Needs Follow-up
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    <a href="#" class="text-purple-600 hover:text-purple-900">View Profile</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 h-10 w-10">
+                                            <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/women/68.jpg" alt="">
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-gray-900">Danielle Rodriguez</div>
+                                            <div class="text-sm text-gray-500">Age 29</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">POI</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-500">3 weeks ago</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                                        New Treatment
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    <a href="#" class="text-purple-600 hover:text-purple-900">View Profile</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-400 py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-6 h-6 rounded-full bg-purple-600 flex items-center justify-center text-white text-xs">FL</div>
+                        <span class="text-white">FEMMORA Doctor Portal</span>
+                    </div>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white">Terms</a>
+                    <a href="#" class="hover:text-white">Privacy</a>
+                    <a href="#" class="hover:text-white">Support</a>
+                </div>
+            </div>
+            <div class="mt-6 pt-6 border-t border-gray-700 text-sm text-center">
+                <p>© 2023 FEMMORA Health Inc. All rights reserved.</p>
+                <p class="mt-1">HIPAA Compliant • Secure Data Storage</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Activity Chart
+            const activityCtx = document.getElementById('activityChart').getContext('2d');
+            const activityChart = new Chart(activityCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                    datasets: [
+                        {
+                            label: 'New Patients',
+                            data: [12, 19, 15, 24, 18, 21, 27],
+                            borderColor: '#8b5cf6',
+                            backgroundColor: 'rgba(139, 92, 246, 0.05)',
+                            tension: 0.3,
+                            fill: true
+                        },
+                        {
+                            label: 'Follow-ups',
+                            data: [32, 29, 35, 41, 38, 44, 39],
+                            borderColor: '#3b82f6',
+                            backgroundColor: 'rgba(59, 130, 246, 0.05)',
+                            tension: 0.3,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Condition Chart
+            const conditionCtx = document.getElementById('conditionChart').getContext('2d');
+            const conditionChart = new Chart(conditionCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['PCOS', 'Perimenopause', 'POI', 'Endometriosis', 'Other'],
+                    datasets: [{
+                        data: [35, 25, 15, 10, 15],
+                        backgroundColor: [
+                            '#8b5cf6',
+                            '#3b82f6',
+                            '#10b981',
+                            '#f59e0b',
+                            '#6b7280'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
